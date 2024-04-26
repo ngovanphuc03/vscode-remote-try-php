@@ -10,3 +10,4 @@ Khóa chính: Kết hợp giữa MSSV và MaMH.
 Khóa ngoại:
 MSSV tham chiếu tới MSSV trong bảng sinhvien.
 MaMH tham chiếu tới MaMH trong bảng monhoc.
+![image](https://github.com/ngovanphuc03/vscode-remote-try-php/assets/124223016/4fd00a17-d6db-41cb-a782-27077da4627e)

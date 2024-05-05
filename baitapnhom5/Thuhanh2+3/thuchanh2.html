@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload and Display</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload Files</h2>
+    <!-- Sửa đường dẫn đến upload.php -->
+    <form action="thuchanh3.php" method="post" enctype="multipart/form-data">
+        Select file to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload File" name="submit">
+    </form>
+
+    <h2>Thong tin chi tiet</h2>
+        <!-- Use iframe to embed thuchanh2.php -->
+        <tr>
+            <td colspan="4">
+                <iframe src="thuchanh2.php" width="100%" height="300" frameborder="0"></iframe>
+            </td>
+        </tr>
+        <!-- Use iframe to embed thuchanh3.php -->
+        <tr>
+            <td colspan="4">
+                <iframe src="thuchanh3.php" width="100%" height="300" frameborder="0"></iframe>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var ascending = true;
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("fileTable");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+                    if (ascending) {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+            ascending = !ascending;
+        }
+    </script>
+</body>
+</html>
